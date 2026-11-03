@@ -17,10 +17,10 @@
 
 - 各種動画
   - https://www.youtube.com/watch?v=f5hhHijweYc : クラシックアレンジ(上記の動画)
-  - https://www.youtube.com/watch?v=f5hhHijweYc : JPOP
-  - https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(Original ver)
-  - https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(24ch. Polyphonic ver)
-  - https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(SC88 ver)
+  - https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
+  - https://www.youtube.com/watch?v=lWfWd9daLQ0 : Ys MIDI Collection(Original ver)
+  - https://www.youtube.com/watch?v=34mrgT3ZyQI : Ys MIDI Collection(24ch. Polyphonic ver)
+  - https://www.youtube.com/watch?v=2OQQydvg6u0 : Ys MIDI Collection(SC88 ver)
 
 ## マニュアル
 
