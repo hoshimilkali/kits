@@ -9,8 +9,7 @@
 
 <img src="images/photo1.jpg" width="240" alt="スピーカー背面に取り付けた FO-01"> <img src="images/photo1.jpg" width="240" alt="スピーカー背面に取り付けた FO-01">
 
-<!-- ## 動作動画 -->
-## $\colorbox{lightblue}{\textsf{動作動画}}$
+## 動作動画
 
 <!-- [![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc) -->
 
