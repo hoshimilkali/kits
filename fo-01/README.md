@@ -15,7 +15,12 @@
 
 [![動作動画(クリックで YouTube を開く)](images/video.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
-https://www.youtube.com/watch?v=f5hhHijweYc : この動画
+- 各種動画
+-- https://www.youtube.com/watch?v=f5hhHijweYc : クラシックアレンジ(上記の動画)
+-- https://www.youtube.com/watch?v=f5hhHijweYc : JPOP
+-- https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(Original ver)
+-- https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(24ch. Polyphonic ver)
+-- https://www.youtube.com/watch?v=f5hhHijweYc : Ys MIDI Collection(SC88 ver)
 
 ## マニュアル
 
