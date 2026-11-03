@@ -8,7 +8,7 @@
 
 ## 動作動画
 
-[![動作動画](https://img.youtube.com/vi/動画ID/0.jpg)](https://www.youtube.com/watch?v=動画ID)
+[![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
 ## マニュアル
 
