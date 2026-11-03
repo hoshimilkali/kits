@@ -15,6 +15,8 @@
 
 [![動作動画(クリックで YouTube を開く)](images/video.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
+https://www.youtube.com/watch?v=f5hhHijweYc : この動画
+
 ## マニュアル
 
 - [FO-01 マニュアル (PDF)](docs/FO-01_manual.pdf)
