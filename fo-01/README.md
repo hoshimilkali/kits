@@ -16,7 +16,7 @@
 [![動作動画(クリックで YouTube を開く)](images/video.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
 - 各種動画
-  - https://www.youtube.com/watch?v=f5hhHijweYc : クラシックアレンジ(上記の動画)
+  - https://www.youtube.com/watch?v=f5hhHijweYc : クラシック曲アレンジ(上記の動画)
   - https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
   - https://www.youtube.com/watch?v=lWfWd9daLQ0 : Ys MIDI Collection(Original ver)
 <!--
@@ -37,6 +37,13 @@
 | 音色 | 楽器 9 音色 + ドラム 5 音色 |
 | 出力 | ダイナミックスピーカー直結(4～32 Ω) |
 | サイズ・質量 | 22 × 22 × 3.5 mm、1.7 g |
+
+
+## 初期状態で書き込まれているファイル
+- クラシック曲 9曲と MIDI.TXT 
+
+## MIDI ファイル圧縮/アレンジ Web ツール
+- 自分で書き込む場合は
 
 ## 端子
 
