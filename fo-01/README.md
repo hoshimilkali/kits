@@ -8,7 +8,9 @@
 
 ## 動作動画
 
-[![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
+<!-- [![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc) -->
+
+[![動作動画(クリックで YouTube を開く)](images/video.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
 ## マニュアル
 
