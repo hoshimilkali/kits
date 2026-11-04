@@ -44,13 +44,13 @@
 
 
 ## 初期状態で書き込まれているファイル
-- クラシック曲 9曲と MIDI.TXT 
+- クラシック曲 9曲と MIDI.TXT ...
 
 ## MIDI ファイル圧縮/アレンジ Web アプリ
-- 自分で書き込む場合は
-- Edge/Chrome では直接書き込み
+- 自分で書き込む場合は...
+- Edge/Chrome では直接書き込み...
 
-## 端子
+## 形状
 
 <img src="images/board.png" width="240" alt="基板">
 
