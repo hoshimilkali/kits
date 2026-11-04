@@ -24,6 +24,8 @@
 - https://www.youtube.com/watch?v=2OQQydvg6u0 : Ys MIDI Collection(SC88 ver)
 -->
 
+&#x25b6; クラシック曲アレンジ(https://www.youtube.com/watch?v=f5hhHijweYc)
+
 ## マニュアル
 
 - [FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
