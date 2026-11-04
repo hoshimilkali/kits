@@ -1,4 +1,4 @@
-# オーディオアンプ内蔵 9曲入りメロディモジュール [MUSICBOARD-MIDI FO-01]
+# オーディオアンプ内蔵 9曲入りメロディモジュール [MUSICBOX-MIDI FS-01]
 
 [作品一覧へ戻る](../README.md)
 
@@ -7,7 +7,7 @@
 | ダイナミックスピーカーを駆動して、楽器9音色とドラム5音色で音楽を演奏するメロディモジュールです。PC からは USB フラッシュメモリとして認識され、そこに書き込んだ標準MIDIファイルを順に演奏します。設定ファイルで、曲・MIDIチャンネルごとに音量、音色、演奏速度を変更できます。ケース入りの円形小型スピーカーの背面に直接取り付けられます。 |
 |:---|
 
-<img src="images/photo1-r.png" width="240" alt="スピーカー背面に取り付けた FO-01"> <img src="images/photo1.jpg" width="240" alt="スピーカー背面に取り付けた FO-01">
+<img src="images/photo1-r.png" width="240" alt="スピーカー背面に取り付けた FS-01"> <img src="images/photo1.jpg" width="240" alt="スピーカー背面に取り付けた FS-01">
 
 ## 動作動画
 
@@ -26,7 +26,7 @@
 
 ## マニュアル
 
-- [FO-01 マニュアル (PDF)](docs/FO-01_manual.pdf)
+- [FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
 
 ## 仕様
 

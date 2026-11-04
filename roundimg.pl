@@ -8,8 +8,8 @@
 #   -w 最大幅  幅がこれより大きい画像は縮小してから角丸にする。既定値 0(縮小しない)
 #
 # 例:
-#   perl roundimg.pl fo-01/images/photo1.jpg
-#   perl roundimg.pl -r 24 -w 800 fo-01/images/*.jpg
+#   perl roundimg.pl fs-01/images/photo1.jpg
+#   perl roundimg.pl -r 24 -w 800 fs-01/images/*.jpg
 #
 # 出力: 入力と同じ場所に「元の名前-r.png」で保存する(photo1.jpg → photo1-r.png)
 # 必要: ImageMagick(7 の magick を優先、無ければ 6 の convert)

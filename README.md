@@ -6,7 +6,7 @@
 
 | 写真 | 作品 | 概要 | 状況 |
 |---|---|---|---|
-| [<img src="fo-01/images/thumb.jpg" width="160" alt="FO-01">](fo-01/README.md) | [オーディオアンプ内蔵 9曲入りメロディモジュール<br>MUSICBOARD-MIDI FO-01](fo-01/README.md) | USB フラッシュメモリに書き込んだ標準MIDIファイルを、小型スピーカーで演奏するモジュール | 準備中 |
+| [<img src="fs-01/images/thumb.jpg" width="160" alt="FS-01">](fs-01/README.md) | [オーディオアンプ内蔵 9曲入りメロディモジュール<br>MUSICBOX-MIDI FS-01](fs-01/README.md) | USB フラッシュメモリに書き込んだ標準MIDIファイルを、小型スピーカーで演奏するモジュール | 準備中 |
 
 ## 連絡先
 
