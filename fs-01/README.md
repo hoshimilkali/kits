@@ -101,13 +101,12 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 ## 回路図
 [<img src="images/schematic1.png" width="240" alt="回路図画像">](images/schematic1.pdf)
 
-
 ## MIDI.TXT の文法
-## MIDI 圧縮
-## 音色とパラメータ
+## MIDI ファイルの形式と圧縮
 ## スピーカー
 ## フォトトランジスタの追加
 ## リカバリモード
+## 音色とパラメータ
 
 <details>
 <summary>更新履歴</summary>
