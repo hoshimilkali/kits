@@ -15,7 +15,7 @@
 
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
-- その他の動画デモ
+### その他の動画デモ
 <!--
 - https://www.youtube.com/watch?v=f5hhHijweYc : クラシック曲アレンジ(上記の動画)
 - https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
