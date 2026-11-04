@@ -9,25 +9,25 @@
 
 <img src="images/board_size-r.png" width="225" alt="FS-01 基板サイズ"> <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
 
-## 動作動画
+## 音楽演奏動画
 
 <!-- [![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc) -->
 
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
-- 各種動画
-  - https://www.youtube.com/watch?v=f5hhHijweYc : クラシック曲アレンジ(上記の動画)
-  - https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
-  - https://www.youtube.com/watch?v=lWfWd9daLQ0 : Ys MIDI Collection(Original ver)
+- その他の動画デモ
 <!--
+- https://www.youtube.com/watch?v=f5hhHijweYc : クラシック曲アレンジ(上記の動画)
+- https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
+- https://www.youtube.com/watch?v=lWfWd9daLQ0 : Ys MIDI Collection(Original ver)
 - https://www.youtube.com/watch?v=34mrgT3ZyQI : Ys MIDI Collection(24ch. Polyphonic ver)
 - https://www.youtube.com/watch?v=2OQQydvg6u0 : Ys MIDI Collection(SC88 ver)
 -->
 
-[&#x25b6; クラシック曲アレンジ](https://www.youtube.com/watch?v=f5hhHijweYc)
+[&#x23e9; クラシック曲アレンジ](https://www.youtube.com/watch?v=f5hhHijweYc)
 [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
-
-
+[&#x23e9; Ys MIDI Collection(Original ver)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
+[&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
 
 ## マニュアル
 
