@@ -24,7 +24,6 @@
 - https://www.youtube.com/watch?v=2OQQydvg6u0 : Ys MIDI Collection(SC88 ver)
 -->
 
-[&#x23e9; クラシック曲アレンジ](https://www.youtube.com/watch?v=f5hhHijweYc)
 [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
 [&#x23e9; Ys MIDI Collection(Original ver)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
 [&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
