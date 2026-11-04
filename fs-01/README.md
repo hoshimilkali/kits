@@ -2,16 +2,12 @@
 
 <!-- [モジュール一覧へ](../README.md) -->
 
-
 <img src="images/board_size-r.png" width="225" alt="FS-01 基板サイズ"> <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
 
 | ダイナミックスピーカーを駆動して、楽器9音色とドラム5音色で音楽を演奏するメロディモジュールです。PC からは USB フラッシュメモリとして認識され、そこに書き込んだ標準MIDIファイルを順に演奏します。設定ファイルで、曲・MIDIチャンネルごとに音量、音色、演奏速度を変更できます。ケース入りの円形小型スピーカーの背面に直接取り付けられます。 |
 |:---|
 
 ## 動画デモ
-
-<!-- [![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc) -->
-
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
 初期状態では...
@@ -34,12 +30,10 @@
 | 出力 | ダイナミックスピーカー直結(4～32 Ω) |
 | サイズ・質量 | 22 × 22 × 3.5 mm、1.7 g |
 
-## 初期状態で書き込まれているファイル
-- クラシック曲 9曲と MIDI.TXT ...
-
-## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
-- [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)(ブラウザ内だけで動作し、ファイルは送信されません)- 自分で書き込む場合は...
-- Edge/Chrome では直接書き込み...
+## 使い方
+- まずここに基本的な使い方だけを書く
+- モードの紹介
+- さらに詳細な設定が必要な場合は後半を読むように
 
 ## 形状と端子
 <img src="images/board.png" width="240" alt="基板">
@@ -99,6 +93,13 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 
 > [!NOTE]
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
+
+## 初期状態で書き込まれているファイル
+- クラシック曲 9曲と MIDI.TXT ...
+
+## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
+- [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)(ブラウザ内だけで動作し、ファイルは送信されません)- 自分で書き込む場合は...
+- Edge/Chrome では直接書き込み...
 
 ## 回路図
 [<img src="images/schematic1.png" width="240" alt="回路図画像">](images/schematic1.pdf)
