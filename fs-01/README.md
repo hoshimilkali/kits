@@ -15,20 +15,11 @@
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
 ### その他の動画デモ
-<!--
-- https://www.youtube.com/watch?v=f5hhHijweYc : クラシック曲アレンジ(上記の動画)
-- https://www.youtube.com/watch?v=M8qboCkSDZQ : JPOP
-- https://www.youtube.com/watch?v=lWfWd9daLQ0 : Ys MIDI Collection(Original ver)
-- https://www.youtube.com/watch?v=34mrgT3ZyQI : Ys MIDI Collection(24ch. Polyphonic ver)
-- https://www.youtube.com/watch?v=2OQQydvg6u0 : Ys MIDI Collection(SC88 ver)
--->
-
 - [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
 - [&#x23e9; Ys MIDI Collection(Original)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
 - [&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
 
 ## マニュアル
-
 - [&#x1f4c4; FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
 
 ## 仕様
@@ -48,8 +39,7 @@
 - 自分で書き込む場合は...
 - Edge/Chrome では直接書き込み...
 
-## 形状
-
+## 形状と端子
 <img src="images/board.png" width="240" alt="基板">
 
 | 端子 | 方向 | 説明 |
