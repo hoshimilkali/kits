@@ -25,7 +25,7 @@
 -->
 
 [&#x25b6; クラシック曲アレンジ](https://www.youtube.com/watch?v=f5hhHijweYc)
-[&#x25b6; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
+[&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
 
 
 
