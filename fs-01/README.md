@@ -13,6 +13,7 @@
 <!-- [![動作動画](https://img.youtube.com/vi/f5hhHijweYc/0.jpg)](https://www.youtube.com/watch?v=f5hhHijweYc) -->
 
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
+
 初期状態では...
 
 ### その他の動画デモ
@@ -55,7 +56,7 @@
 | ⑧ | 入力 | トリガ |
 | ⑩ | 入力 | モード / 進む・戻る |
 
-※ 3V または 5V を給電します。5V は USB から給電してもかまいません。5V を給電すると LDO で降圧され、3V 端子に出力されます。
+※ 3V または 5V を給電します。5V は USB から給電してもかまいません。5V を給電すると内蔵のレギュレータで降圧され、3V 端子に出力されます。
 
 SP+ と SP- の間にダイナミックスピーカーを接続し、電源端子または USB 端子から給電すると、MIDI ファイルを演奏します。
 
