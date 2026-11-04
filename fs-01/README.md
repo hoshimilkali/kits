@@ -7,7 +7,7 @@
 | ダイナミックスピーカーを駆動して、楽器9音色とドラム5音色で音楽を演奏するメロディモジュールです。PC からは USB フラッシュメモリとして認識され、そこに書き込んだ標準MIDIファイルを順に演奏します。設定ファイルで、曲・MIDIチャンネルごとに音量、音色、演奏速度を変更できます。ケース入りの円形小型スピーカーの背面に直接取り付けられます。 |
 |:---|
 
-<img src="images/board_size-r.png" width="240" alt="FS-01 基板サイズ"> <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
+<img src="images/board_size-r.png" width="220" alt="FS-01 基板サイズ"> <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
 
 ## 動作動画
 
