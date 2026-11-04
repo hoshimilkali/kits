@@ -109,7 +109,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
 
 ## 回路図
-[<img src="images/schematic1.png" width=240" alt="回路図画像">](images/schematic1.pdf)
+[<img src="images/schematic1.png" width="240" alt="回路図画像">](images/schematic1.pdf)
 
 
 ## MIDI.TXT の文法
