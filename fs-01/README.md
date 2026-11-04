@@ -25,7 +25,7 @@
 -->
 
 [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
-[&#x23e9; Ys MIDI Collection(Original ver)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
+[&#x23e9; Ys MIDI Collection(Original)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
 [&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
 
 ## マニュアル
