@@ -40,7 +40,7 @@
 
 
 ## 形状と端子
-<img src="images/pinnum-r.png" width="240" alt="基板">
+<img src="images/pinnum-r.png" width="360" alt="基板">
 
 | 端子 | 方向 | 説明 |
 |---|---|---|
