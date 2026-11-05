@@ -123,7 +123,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 指定できる音色: `TUNINGFORK` `XYLOTONE` `SAW` `CLARINET` `SQUARE` `PIANO` `VIOLIN` `FLUTE` `ORGAN` `MUTE`(無音)
 
 
-> [!NOTE]
+> [!WARNING]
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
 
 ## 初期状態で書き込まれているファイル
