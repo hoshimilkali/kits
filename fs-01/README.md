@@ -44,7 +44,7 @@ SP+ と SP- 端子にダイナミックスピーカーを接続し、VDD 端子�
 -->
 
 ## 名称と機能
-<img src="images/pinnum-r.png" width="50%" alt="ピン番号">
+<img src="images/pinnum-r.png" width="35%" alt="ピン番号">
 
 ### 基本機能
 
