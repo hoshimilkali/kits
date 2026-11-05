@@ -137,7 +137,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 - Edge/Chrome では直接書き込み...
 
 ## 回路図
-[<img src="images/schematic1.png" width="50%" alt="回路図画像">](images/schematic1.pdf)
+[<img src="images/schematic1.png" width="80%" alt="回路図画像">](images/schematic1.pdf)
 
 ## MIDI.TXT の文法
 ## MIDI ファイルの形式と圧縮
