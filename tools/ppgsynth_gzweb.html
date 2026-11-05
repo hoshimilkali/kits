@@ -69,7 +69,8 @@ textarea.cnf { display: block; width: 100%; min-width: 16em; font: 12px/1.4 Cons
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ch select.inst.changed { color: #f97066; } }
 .ch select.inst option { color: var(--fg); background: var(--bg); font-weight: normal; }
 td.ord { text-align: center; }
-.dot { display: inline-block; width: 1em; margin-right: 0.4em; text-align: center; color: var(--accent); transform-origin: center; cursor: pointer; }
+.dot { display: inline-block; width: 1em; margin-right: 0.4em; text-align: center; color: var(--accent); transform-origin: center; }
+.mbtn { cursor: pointer; user-select: none; }
 .dot.mute { color: var(--muted); opacity: 0.6; }
 td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
 /* 説明文はヘルプアイコンのツールチップで表示する (ポイント、フォーカス、クリックで開く。2026/11/05) */
@@ -1644,12 +1645,16 @@ function render() {
             const dot = document.createElement('span');
             dot.className = muted ? 'dot mute' : 'dot';
             dot.textContent = '●';
-            dot.title = 'クリックで ch' + x.ch + ' のミュートを' + (muted ? '解除する' : 'する');
-            dot.addEventListener('click', () => toggleMute(it, x.ch));
             dotSet(dot, 0);
             it.dots[x.ch - 1] = dot;
-            if (muted || x.ch === DRUM_CH) s.append(dot, 'ch' + x.ch + ': ' + (muted ? 'MUTE' : x.timbres.join(', ')));
-            else s.append(dot, 'ch' + x.ch + ': ', instSelect(it, x));
+            // ● と "chN:" をまとめてクリックできるようにする (● は小さく表示されるので、それだけでは押しにくい。2026/11/05)
+            const mb = document.createElement('span');
+            mb.className = 'mbtn';
+            mb.title = 'クリックで ch' + x.ch + ' のミュートを' + (muted ? '解除する' : 'する');
+            mb.addEventListener('click', () => toggleMute(it, x.ch));
+            mb.append(dot, 'ch' + x.ch + ':');
+            if (muted || x.ch === DRUM_CH) s.append(mb, ' ' + (muted ? 'MUTE' : x.timbres.join(', ')));
+            else s.append(mb, ' ', instSelect(it, x));
             cc.append(s);
         });
         for (const x of r.drumMoved) {
