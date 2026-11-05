@@ -7,12 +7,11 @@
 | ダイナミックスピーカーを駆動して、楽器9音色とドラム5音色で音楽を演奏するメロディモジュールです。PC からは USB フラッシュメモリとして認識され、そこに書き込んだ標準MIDIファイルを順に演奏します。設定ファイルで、曲・MIDIチャンネルごとに音量、音色、演奏速度を変更できます。ケース入りの円形小型スピーカーの背面に直接取り付けられます。 |
 |:---|
 
-## 動画デモ
+## 演奏デモ動画
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
+初期状態で書き込まれているクラシックのアレンジ曲 9曲です
 
-初期状態では...
-
-### その他の動画デモ
+### その他の演奏デモ動画
 - [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
 - [&#x23e9; Ys MIDI Collection(Original)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
 - [&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
