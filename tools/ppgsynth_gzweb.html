@@ -125,7 +125,7 @@ td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
   <div class="row">
     <button id="save" class="primary" disabled>音楽ファイルを書き込み</button>
     <button id="savetxt2" class="primary" disabled>MIDI.TXT を書き込み</button>
-    <button id="clear" disabled>すべて取消</button>
+    <button id="clear" disabled>すべて除去</button>
     <span id="total"></span>
     <span id="msg"></span>
   </div>
@@ -1468,7 +1468,7 @@ function removeItem(it) {
 function delCell(tr, it) {
     const c = td(tr, '', 'btn');
     const b = document.createElement('button');
-    b.textContent = '取消';
+    b.textContent = '除去';
     b.title = '一覧から消す';
     b.addEventListener('click', () => removeItem(it));
     c.append(b);
@@ -1690,7 +1690,7 @@ function render() {
         wb.addEventListener('click', () => previewSaveWav(it));
         wc.append(wb);
         delCell(tr, it);
-        // 入力欄は次の行に置き、試聴から取消までの 3 列を使う。左の列は 2 行にまたがせる
+        // 入力欄は次の行に置き、試聴から除去までの 3 列を使う。左の列は 2 行にまたがせる
         const cells = Array.from(tr.children);
         for (const c of cells.slice(0, -3)) c.rowSpan = 2;
         for (const c of cells.slice(-3)) c.classList.add('nb');
