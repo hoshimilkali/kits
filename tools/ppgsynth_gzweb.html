@@ -1041,6 +1041,14 @@ const WS_GAIN = 6 / 32768;
 
 let wsModP = null;              // WsModule の Promise
 let pv = null;                  // 再生中: { it, ac, mod, buf, next, end, timer, last, t0, off, total, tick }
+// 停止ボタンで止めた曲と位置 (2026/11/05)。次にその曲の試聴ボタンを押すとここから再開する。
+// 変換し直した (it.res が変わった) ときと、間に別の曲を試聴したときは使わない: { it, res, sec }
+let pvResume = null;
+
+// it が停止ボタンで止めた曲で、その位置から再開できるとき true
+function pvPaused(it) {
+    return !(pv && pv.it === it) && !!pvResume && pvResume.it === it && pvResume.res === it.res;
+}
 
 function wsModule() {
     if (!wsModP) wsModP = WsModule();
@@ -1074,12 +1082,17 @@ function previewStop() {
     render();
 }
 
-// 演奏している位置 (秒、曲頭の無音を含む。表の演奏時間と同じ基準) を表示する
+// 演奏している位置 (秒、曲頭の無音を含む。表の演奏時間と同じ基準)
+function previewPosSec() {
+    return Math.min(pv.total, pv.off + Math.max(0, pv.ac.currentTime - pv.t0));
+}
+
+// 演奏している位置を表示する
 function previewShowPos() {
     const el = $('pvpos');
     if (!pv || !el || pv.drag) return;
     const total = pv.total;
-    const t = Math.min(total,pv.off + Math.max(0, pv.ac.currentTime - pv.t0));
+    const t = previewPosSec();
     el.textContent = fmtMs(t) + ' / ' + fmtMs(total);
     const sk = $('pvseek');
     if (sk) sk.value = t;
@@ -1201,9 +1214,15 @@ async function previewSaveWav(it) {
     }
 }
 
-// it: items の要素。もう一度押すと止める
+// it: items の要素。もう一度押すと止める。止めた位置は pvResume に覚え、次に押すとそこから鳴らす
 async function previewToggle(it) {
-    if (pv && pv.it === it) { previewStop(); return; }
+    if (pv && pv.it === it) {
+        pvResume = { it: it, res: it.res, sec: previewPosSec(), total: pv.total };
+        previewStop();
+        return;
+    }
+    const rs = (pvResume && pvResume.it === it && pvResume.res === it.res) ? pvResume.sec : 0;
+    pvResume = null;
     previewStop();
     const ac = new AudioContext();
     let mod;
@@ -1227,6 +1246,8 @@ async function previewToggle(it) {
     pv.out = ac.createGain();
     pv.out.connect(ac.destination);
     pv.t0 = pv.next;
+    // 停止した位置から再開する。音色、ミュート、追加の行は wsOpen() で今の設定になる
+    if (rs > 0) pv.off = mod._ws_seek(Math.round(rs * WS_RATE)) / WS_RATE;
     pv.timer = setInterval(previewPump, PV_TIMER_MS);
     pv.tick = setInterval(previewShowPos, 200);
     pv.raf = requestAnimationFrame(dotsFrame);
@@ -1279,10 +1300,20 @@ function seekBar(it) {
     r.min = 0;
     r.step = 0.1;
     const on = pv && pv.it === it;
-    r.disabled = !on;
-    r.max = on ? pv.total : 1;
-    r.value = 0;
-    r.title = on ? 'ドラッグして演奏位置を移す' : '試聴中に演奏位置を移せます';
+    // 停止ボタンで止めている曲は、再開する位置を移せる (2026/11/05)
+    const pz = pvPaused(it);
+    r.disabled = !on && !pz;
+    r.max = on ? pv.total : pz ? pvResume.total : 1;
+    r.value = pz ? pvResume.sec : 0;
+    r.title = on ? 'ドラッグして演奏位置を移す' : pz ? 'ドラッグして再開する位置を移す'
+                                                    : '試聴中と停止中に演奏位置を移せます';
+    if (pz) {
+        r.addEventListener('input', () => {
+            pvResume.sec = +r.value;
+            const el = $('pvpos');
+            if (el) el.textContent = fmtMs(pvResume.sec) + ' / ' + fmtMs(pvResume.total);
+        });
+    }
     if (on) {
         r.id = 'pvseek';
         r.addEventListener('input', () => {
@@ -1649,6 +1680,7 @@ function render() {
         const ps = document.createElement('span');
         ps.className = 'pvpos';
         if (pv && pv.it === it) ps.id = 'pvpos';
+        else if (pvPaused(it)) { ps.id = 'pvpos'; ps.textContent = fmtMs(pvResume.sec) + ' / ' + fmtMs(pvResume.total); }
         else { ps.style.visibility = 'hidden'; ps.textContent = fmtMs(r.playSec) + ' / ' + fmtMs(r.playSec); }
         pc.append(ps);
         const wc = td(tr, '', 'btn');
