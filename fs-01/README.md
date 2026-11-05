@@ -9,7 +9,8 @@
 
 ## 演奏デモ動画
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
-初期状態で書き込まれているクラシックのアレンジ曲 9曲です
+
+初期状態でフラッシュに書き込まれているクラシックのアレンジ曲 9曲です
 
 ### その他の演奏デモ動画
 - [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
