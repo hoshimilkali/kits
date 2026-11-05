@@ -10,12 +10,12 @@
 ## 演奏デモ動画
 [![動作動画(クリックで YouTube を開く)](images/video2-r.png)](https://www.youtube.com/watch?v=f5hhHijweYc)
 
-初期状態でフラッシュに書き込まれているクラシックのアレンジ曲 9曲です
+初期状態でフラッシュに書き込まれているクラシックのアレンジ9曲です
 
 ### その他の演奏デモ動画
 - [&#x23e9; JPOP](https://www.youtube.com/watch?v=M8qboCkSDZQ)
-- [&#x23e9; Ys MIDI Collection(Original)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
-- [&#x23e9; Ys MIDI Collection(SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
+- [&#x23e9; Ys MIDI Collection-Original (Nihon Falcom)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
+- [&#x23e9; Ys MIDI Collection-SC88](https://www.youtube.com/watch?v=2OQQydvg6u0)
 
 ## マニュアル
 - [&#x1f4c4; FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
