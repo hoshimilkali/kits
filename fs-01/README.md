@@ -21,7 +21,6 @@
 - [&#x1f4c4; FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
 - &#x24B6;
 
-
 ## 使い方
 基板上の SP+ とSP- 端子にダイナミックスピーカーを接続し、電源または USB 端子から給電すると、MIDI ファイルが演奏されます
 <!--
@@ -41,7 +40,7 @@
 
 
 ## 形状と端子
-<img src="images/board.png" width="240" alt="基板">
+<img src="images/pinnum-r.png" width="240" alt="基板">
 
 | 端子 | 方向 | 説明 |
 |---|---|---|
