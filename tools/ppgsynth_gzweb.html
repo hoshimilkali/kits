@@ -1360,6 +1360,20 @@ function previewSeek(sec) {
     previewShowPos();
 }
 
+// 試聴中にカーソルキーの左右で 5 秒戻す / 進める (2026/11/05)。
+// 文字の入力欄やリストボックス、シークバーにフォーカスがあるときは、その欄の操作を優先する
+const PV_KEY_STEP = 5;
+document.addEventListener('keydown', e => {
+    if (!pv || pv.drag) return;
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName))) return;
+    e.preventDefault();
+    const d = e.key === 'ArrowLeft' ? -PV_KEY_STEP : PV_KEY_STEP;
+    previewSeek(Math.max(0, Math.min(pv.total, previewPosSec() + d)));
+});
+
 // ui.js - 画面の処理
 
 'use strict';
