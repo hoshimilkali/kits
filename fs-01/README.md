@@ -17,16 +17,6 @@
 - [&#x23e9; Ys MIDI Collection (Original)](https://www.youtube.com/watch?v=lWfWd9daLQ0)
 - [&#x23e9; Ys MIDI Collection (SC88)](https://www.youtube.com/watch?v=2OQQydvg6u0)
 
-## マニュアル
-- [&#x1f4c4; FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
-
-## 使い方
-基板上の SP+ とSP- 端子にダイナミックスピーカーを接続し、電源または USB 端子から給電すると、MIDI ファイルが演奏されます
-<!--
-- [演奏] [進む] [戻る] スイッチを追加して演奏をコントロールできます
-- MIDI ファイルが本機でどのように演奏されるか、ブラウザ上のエミュレータで確認できます
--->
-
 ## 仕様
 
 | 項目 | 値 |
@@ -37,9 +27,18 @@
 | 出力 | ダイナミックスピーカー直結 (4～32 Ω) |
 | サイズ・質量 | 22 × 22 × 3.5 mm、1.7 g |
 
+## マニュアル
+- [&#x1f4c4; FS-01 マニュアル (PDF)](docs/FS-01_manual.pdf)
+
+## 使い方
+基板上の SP+ とSP- 端子にダイナミックスピーカーを接続し、電源または USB 端子から給電すると、MIDI ファイルが演奏されます
+<!--
+- [演奏] [進む] [戻る] スイッチを追加して演奏をコントロールできます
+- MIDI ファイルが本機でどのように演奏されるか、ブラウザ上のエミュレータで確認できます
+-->
 
 ## 形状と端子
-<img src="images/pinnum2-r.png" width="50%" alt="ピン番号">
+<img src="images/pinnum-r.png" width="50%" alt="ピン番号">
 
 | 端子 | 方向 | 説明 |
 |---|---|---|
