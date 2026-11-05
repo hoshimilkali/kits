@@ -44,7 +44,7 @@ SP+ と SP- 端子にダイナミックスピーカーを接続し、VDD 端子�
 - MIDI ファイルが本機でどのように演奏されるか、ブラウザ上のエミュレータで確認できます
 -->
 
-## 各部の名称と機能
+## 名称と機能
 <img src="images/pinnum-r.png" width="50%" alt="ピン番号">
 
 ### 基本機能
@@ -144,11 +144,14 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 
 ## MIDI.TXT の文法
 ## MIDI ファイルの形式と圧縮
-## スピーカー
-<img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
 
+## スピーカー
+<img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表">
+<img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
 
 ## フォトトランジスタの追加
+- 基板上にフォトトランジスタ (LED2, NJL7502L) を実装して、JPT のシルクのランドをショートすると...
+
 ## リカバリモード
 ## 音色とパラメータ
 
