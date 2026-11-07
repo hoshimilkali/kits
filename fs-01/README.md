@@ -42,8 +42,8 @@ SP+ と SP- 端子にダイナミックスピーカーを接続し、VDD 端子�
 -->
 
 ## ダウンロード
-- 簡易マニュアル
-  - [FS-01 簡易マニュアル (PDF)](docs/FS-01_manual.pdf)
+- 簡易マニュアル(PDF)
+  - [FS-01_manual.pdf](docs/FS-01_manual.pdf)
 - 初期 MIDI ファイルと設定ファイル
   - [MIDIV1.ZIP](docs/MIDIV1.ZIP)
 
