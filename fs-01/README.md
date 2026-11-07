@@ -45,6 +45,9 @@ SP+ と SP- 端子にダイナミックスピーカーを接続し、VDD 端子�
 - 初期 MIDI ファイルと設定ファイル
   - [MIDIV1.ZIP](docs/MIDIV1.ZIP)
 
+## 回路図
+[<img src="images/schematic1.png" width="80%" alt="回路図画像">](images/schematic1.pdf)
+
 ## 名称と機能
 <img src="images/pinnum-r.png" width="35%" alt="ピン番号">
 
@@ -159,8 +162,6 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 - 自分で書き込む場合は...
 - Edge/Chrome では直接書き込み...
 
-## 回路図
-[<img src="images/schematic1.png" width="80%" alt="回路図画像">](images/schematic1.pdf)
 
 ## MIDI.TXT の文法
 ## MIDI ファイルの形式と圧縮
