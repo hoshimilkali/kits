@@ -145,17 +145,18 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 | XYLOTONE | 木琴 |
 | SAW | 三角波 |
 | SQUARE | 矩形波 |
-| BASS | バスドラム |
-| SNARE | スネアドラム |
-| TOM | タム |
-| CLOSEDHAT | クローズドハイハット |
-| OPENHAT | オープンハイハット |
+| BASS | バスドラム (ドラム)|
+| SNARE | スネアドラム (ドラム)|
+| TOM | タム (ドラム)|
+| CLOSEDHAT | クローズドハイハット (ドラム)|
+| OPENHAT | オープンハイハット (ドラム)|
 | MUTE | 無音 |
 
 > [!WARNING]
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
 
 ## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
+<img src="images/webtool.png" alt="Webtoolスナップショット">
 - [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
 - ブラウザ内だけで動作し、ファイルは送信されません
 - 単一のファイル
