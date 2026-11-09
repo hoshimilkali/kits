@@ -156,7 +156,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 
 | スピーカー | 取付時表面 | 取付時裏面 | URL |
 |---|---|---|---|
-| [UGSM30A-8-01 (秋月)](https://akizukidenshi.com/catalog/g/g109270/)<br>[UGSM30B-8-01 (秋月)](https://akizukidenshi.com/catalog/g/g109271/) | <img src="images/sp_large_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="125" alt="スピーカー背面に取り付けた FS-01 大裏"> | 0.15W, 直径29mm, 厚さ12.7mm, ピン間隔15mm |
+| [UGSM30A-8-01 (秋月)](https://akizukidenshi.com/catalog/g/g109270/)<br>[UGSM30B-8-01 (秋月)](https://akizukidenshi.com/catalog/g/g109271/) | <img src="images/sp_large_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="125" alt="スピーカー背面に取り付けた FS-01 大裏"> | 0.15W, 直径29mm, 厚さ12.7mm, ピン間隔15mm<br>0.15W, 直径29.2mm, 厚さ11.8mm, ピン間隔15mm|
 | [UGSM23A (秋月)](https://akizukidenshi.com/catalog/g/g109797/ )| <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | 0.08W, 直径22.5mm, 厚さ8.5mm, ピン間隔10mm |
 
 ## ■ フォトトランジスタによる演奏の ON/OFF
