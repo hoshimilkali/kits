@@ -140,10 +140,9 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 
 - [Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
 ### 機能
-- MIDI ファイルがどのように再生されるかを試聴できる Web アプリです (Edge/Chrome 用)。
+- MIDI ファイルがどのように再生されるかを試聴できる Web アプリです (Edge/Chrome 用)。音色や演奏時間、演奏速度速度をアレンジできます。
 - 試聴後に MIDI ファイルを圧縮して、モジュールに直接書き込めます。設定ファイル MIDI.TXT も同時に書き込めます。モジュールを USB 接続して「音楽ファイルを書き込み」「MIDI.TXT を書き込み」ボタンを押し、書き込み先のドライブを指定してください。
-- 音色や演奏時間、演奏速度速度をアレンジできます。
-- 単一の HTML ファイルです。ブラウザ内だけで動作し、ファイルは外部に送信されません。
+- 単一の HTML ファイルです。ブラウザ内で動作し、ファイルは外部に送信されません。
 
 ## MIDI.TXT の文法
 
@@ -168,10 +167,10 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 -->
 
 ## スピーカーの選択
-| スピーカー | 取付時表面 | 取付時裏面 | 備考 |
+| スピーカー | 取付時表面 | 取付時裏面 | URL |
 |---|---|---|---|
-| SP1 | <img src="images/sp_large_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="125" alt="スピーカー背面に取り付けた FS-01 大裏"> | SP1 |
-| SP2 | <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | SP2|
+| UGSM30A-8-01 (秋月)| <img src="images/sp_large_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="125" alt="スピーカー背面に取り付けた FS-01 大裏"> | https://akizukidenshi.com/catalog/g/g109270/ |
+| UGSM23A (秋月)| <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | https://akizukidenshi.com/catalog/g/g109797/ |
 
 ## フォトトランジスタの追加
 - 基板上にフォトトランジスタ (LED2, NJL7502L) を実装して、JPT のシルクのランドをショートすると...
