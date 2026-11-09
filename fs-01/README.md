@@ -135,7 +135,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 > [!WARNING]
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
 
-## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
+## MIDI ファイル圧縮書き込み用 Web アプリ
 <img src="images/webtool.png" alt="Webtoolスナップショット">
 
 - [Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
