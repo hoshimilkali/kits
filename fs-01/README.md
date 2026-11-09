@@ -156,7 +156,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 | [UGSM23A (秋月)](https://akizukidenshi.com/catalog/g/g109797/ )| <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | 0.08W, 直径22.5mm, 厚さ8.5mm, ピン間隔10mm |
 
 ## フォトトランジスタの接続
-<img src="images/phototr-r.png" width="30%" alt="フォトトランジスタ取付写真>
+<img src="images/phototr-r.png" width="30%" alt="フォトトランジスタ取付写真">
 - 基板上にフォトトランジスタ (LED2, NJL7502L) を追加すると、明るいところで演奏を開始するオルゴールとして動作します。
 - フォトトランジスタを使用する場合は、スピーカーに [UGSM23A (秋月)](https://akizukidenshi.com/catalog/g/g109797/) を使用し、基板上の JPT のシルクのランドをショートしてください。
 - 動作モードはオルゴールモードになります。トリガ端子(&#x24B6;) にはフォトトランジスタが接続されますので、ここに別途外部スイッチを接続することはできません。ただしモードセレクト端子(&#x24B8;)による曲の選択は可能です。
