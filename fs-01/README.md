@@ -151,9 +151,8 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 - 試聴・アレンジ後に MIDI ファイルを圧縮して、本モジュールに直接書き込めます。設定ファイル MIDI.TXT も同時に書き込めます。モジュールを USB 接続して「音楽ファイルを書き込み」「MIDI.TXT を書き込み」ボタンを押し、書き込み先のドライブを指定してください。
 - 単一の HTML ファイルです。ブラウザ内で動作し、ファイルは外部に送信されません。
 
-
-## ■ スピーカーの選択
-- 下記のダイナミックスピーカーの背面に取り付けられるサイズになっています。
+## ■ スピーカー
+- 本機は下記のダイナミックスピーカーの背面に直接取り付けられる構造になっています。
 
 | スピーカー | 取付時表面 | 取付時裏面 | URL |
 |---|---|---|---|
@@ -161,7 +160,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 | [UGSM23A (秋月)](https://akizukidenshi.com/catalog/g/g109797/ )| <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | 0.08W, 直径22.5mm, 厚さ8.5mm, ピン間隔10mm |
 
 ## ■ フォトトランジスタによる演奏の ON/OFF
-<img src="images/phototr-r.png" width="30%" alt="フォトトランジスタ取付写真">
+<img src="images/phototr-r.png" width="20%" alt="フォトトランジスタ取付写真">
 
 - 画像のように、基板上にフォトトランジスタ (LED2, NJL7502L) を追加すると、明るいところで演奏を開始するオルゴールとして動作します。
 - スピーカーに [UGSM23A (秋月)](https://akizukidenshi.com/catalog/g/g109797/) を使用し、基板上の JPT のシルクのランドをショートしてください。 動作モードはオルゴールモードになります。モードセレクト端子(&#x24B8;)による曲の選択も可能です。
@@ -577,7 +576,7 @@ Windows は、USB フラッシュメモリに `System Volume Information` とい
 rd /s /q "E:\System Volume Information" & type nul > "E:\System Volume Information" & attrib +h +s "E:\System Volume Information"
 ```
 
-## ■ リカバリモード
+## ■ 出荷時の状態に戻す
 
 フラッシュメモリの内容が壊れて動作しなくなったときに、PC を使わずにフラッシュメモリの全体を消去します。リカバリ用入力 (④、PA6) は基板上で 100 kΩ でプルダウンされています。④ と VDD の間に押しボタンを接続して、次の手順で操作します。
 
