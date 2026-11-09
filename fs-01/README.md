@@ -134,6 +134,20 @@ SONG(2).START=20           # 20秒目から開始
 SONG(2).LEN=60             # 開始から60秒間演奏
 ```
 
+> [!WARNING]
+> MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
+
+## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
+<img src="images/webtool.png" alt="Webtoolスナップショット">
+- [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
+- ブラウザ内だけで動作し、ファイルは送信されません
+- 単一のファイル
+- 自分で書き込む場合は...
+- Edge/Chrome では直接書き込み...
+
+## MIDI.TXT の文法
+
+<!--
 | 音色名 | 音色 |
 |---|---|
 | PIANO | ピアノ |
@@ -151,33 +165,38 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 | CLOSEDHAT | クローズドハイハット (ドラム)|
 | OPENHAT | オープンハイハット (ドラム)|
 | MUTE | 無音 |
-
-> [!WARNING]
-> MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。
-
-## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
-<img src="images/webtool.png" alt="Webtoolスナップショット">
-- [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
-- ブラウザ内だけで動作し、ファイルは送信されません
-- 単一のファイル
-- 自分で書き込む場合は...
-- Edge/Chrome では直接書き込み...
-
-
-## MIDI.TXT の文法
-## MIDI ファイルの形式と圧縮
+-->
 
 ## スピーカー
-<img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表">
-<img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏">
-<img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表">
-<img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏">
+| スピーカー | 取付時表面 | 取付時裏面 | 備考 |
+|---|---|---|---|
+| SP1 | <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> | SP1 |
+| SP2 | <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏"> | SP2|
 
 ## フォトトランジスタの追加
 - 基板上にフォトトランジスタ (LED2, NJL7502L) を実装して、JPT のシルクのランドをショートすると...
 
 ## リカバリモード
-## 音色とパラメータ
+
+## 回路とファームウェアの実装
+### アンプとオーディオ回路
+- オーディオアンプ PAM 8302
+- PWM とローパスフィルタ
+
+### MIDI ファイルのデコード
+- 圧縮方式
+- デコードする MIDI イベント
+- 優先度とスチールのアルゴリズム
+
+### 発音の方式
+- 割り込みと PWM
+- 音色とパラメータ
+- ドラム
+
+### ファイルシステム
+- CH32V203 の USB インタフェース
+- マスストレージデバイス
+- PetitFAT ファイルシステム
 
 <details>
 <summary>更新履歴</summary>
