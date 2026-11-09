@@ -132,14 +132,14 @@ SONG(1).FILE=MYSONG1.MID   # 1曲目のファイル名
 SONG(1).SPEED=120          # 速度120%
 SONG(1).CH(1).VOL=3        # CH1 の音量を +3dB
 SONG(1).CH(2).INST=FLUTE   # CH2 の音色をフルートに
-SONG(2).FILE=MYSONG2.MID   # 2曲目のファイル名
+SONG(2).FILE=MYSONG2.GZ    # 2曲目のファイル名
 SONG(2).ALL.VOL=-6         # 全 CH の音量を -6dB
 SONG(2).START=20           # 20秒目から開始
 SONG(2).LEN=60             # 開始から60秒間演奏
 ```
 
 > [!WARNING]
-> MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。MIDI.TXT がある場合は、ファイル内で指定した MIDI ファイルのみが演奏されて、それ以外は演奏されません。
+> MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。MIDI.TXT で MIDI ファイル名を指定した場合は、指定したファイルのみが演奏されて、それ以外は存在しても演奏されません。
 
 ## ■ MIDI ファイル圧縮書き込み用 Web アプリ
 <img src="images/webtool.png" alt="Webtoolスナップショット">
