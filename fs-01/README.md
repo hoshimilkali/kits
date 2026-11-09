@@ -170,8 +170,8 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 ## スピーカー
 | スピーカー | 取付時表面 | 取付時裏面 | 備考 |
 |---|---|---|---|
-| SP1 | <img src="images/sp_large_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="250" alt="スピーカー背面に取り付けた FS-01 大裏"> | SP1 |
-| SP2 | <img src="images/sp_small_front-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="240" alt="スピーカー背面に取り付けた FS-01 小裏"> | SP2|
+| SP1 | <img src="images/sp_large_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 大表"> | <img src="images/sp_large_back-r.png" width="125" alt="スピーカー背面に取り付けた FS-01 大裏"> | SP1 |
+| SP2 | <img src="images/sp_small_front-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小表"> | <img src="images/sp_small_back-r.png" width="120" alt="スピーカー背面に取り付けた FS-01 小裏"> | SP2|
 
 ## フォトトランジスタの追加
 - 基板上にフォトトランジスタ (LED2, NJL7502L) を実装して、JPT のシルクのランドをショートすると...
