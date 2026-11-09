@@ -140,10 +140,11 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 <img src="images/webtool.png" alt="Webtoolスナップショット">
 
 - [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
-- ブラウザ内だけで動作し、ファイルは送信されません
-- 単一のファイル
-- 自分で書き込む場合は...
-- Edge/Chrome では直接書き込み...
+### 機能
+- MIDI ファイルがどのように再生されるかを試聴できる Web アプリです。
+- 試聴後に MIDI ファイルを圧縮して、設定ファイルと同時にモジュールに直接書き込めます (Edge/Chrome 用)。モジュールを USB 接続して「音楽ファイルを書き込み」「MIDI.TXT を書き込み」ボタンを押し、書き込み先のドライブを指定してください。
+- 音色や演奏時間、演奏速度速度をアレンジできます。
+- 単一の HTML ファイルです。ブラウザ内だけで動作し、ファイルは外部に送信されません
 
 ## MIDI.TXT の文法
 
