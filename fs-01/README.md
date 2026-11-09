@@ -138,7 +138,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏
 ## MIDI ファイル圧縮 & 演奏アレンジ用 Web アプリ
 <img src="images/webtool.png" alt="Webtoolスナップショット">
 
-- [ppgsynth MIDI 圧縮 Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
+- [Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
 ### 機能
 - MIDI ファイルがどのように再生されるかを試聴できる Web アプリです (Edge/Chrome 用)。
 - 試聴後に MIDI ファイルを圧縮して、モジュールに直接書き込めます。設定ファイル MIDI.TXT も同時に書き込めます。モジュールを USB 接続して「音楽ファイルを書き込み」「MIDI.TXT を書き込み」ボタンを押し、書き込み先のドライブを指定してください。
