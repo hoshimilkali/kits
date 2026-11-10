@@ -128,10 +128,12 @@ USB フラッシュメモリのルートディレクトリに `MIDI.TXT` を置�
 
 ```
 # MIDI.TXT Example
+# --- SONG1
 SONG(1).FILE=MYSONG1.MID   # 1曲目のファイル名
 SONG(1).SPEED=120          # 速度120%
 SONG(1).CH(1).VOL=3        # CH1 の音量を +3dB
 SONG(1).CH(2).INST=FLUTE   # CH2 の音色をフルートに
+# --- SONG2
 SONG(2).FILE=MYSONG2.GZ    # 2曲目のファイル名
 SONG(2).ALL.VOL=-6         # 全 CH の音量を -6dB
 SONG(2).START=20           # 20秒目から開始
