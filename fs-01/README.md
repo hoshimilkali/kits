@@ -1,4 +1,4 @@
-# オーディオアンプ内蔵 9曲入りメロディモジュール [MUSICBOX-MIDI FS-01]
+# オーディオアンプ内蔵メロディモジュール [MUSICBOX-MIDI FS-01]
 
 <!-- [モジュール一覧へ](../README.md) -->
 
@@ -42,7 +42,7 @@ SP+ と SP- 端子にダイナミックスピーカーを接続し、VDD 端子�
 ## ■ ダウンロード
 - 簡易マニュアル (PDF)
   - [FS-01_manual.pdf](docs/FS-01_manual.pdf)
-- 初期 MIDI ファイル(9曲)と設定ファイル
+- 初期 MIDI ファイル (9曲) と設定ファイル (MIDI.TXT)
   - [MIDIV1.ZIP](docs/MIDIV1.zip)
 
 ## ■ 名称と機能
