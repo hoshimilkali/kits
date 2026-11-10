@@ -135,7 +135,7 @@ SONG(1).CH(2).INST=FLUTE   # CH2 の音色をフルートに
 SONG(2).FILE=MYSONG2.GZ    # 2曲目のファイル名
 SONG(2).ALL.VOL=-6         # 全 CH の音量を -6dB
 SONG(2).START=20           # 20秒目から開始
-SONG(2).LEN=60             # 開始から60秒間演奏
+SONG(2).LEN=60             # 開始から60秒間演奏してフェードアウト
 ```
 
 > [!WARNING]
