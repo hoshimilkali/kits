@@ -63,7 +63,8 @@ textarea.cnf { display: block; width: 100%; min-width: 16em; font: 12px/1.4 Cons
                position: relative; padding: 2px; color: transparent; caret-color: var(--fg); background: transparent;
                border: 1px solid var(--line); border-radius: 4px; resize: vertical; }
 textarea.cnf::placeholder { color: var(--muted); }
-textarea.cnf::selection { color: var(--fg); }
+/* 選んだ範囲は通常のテキストエリアと同じ色 (システムの Highlight / HighlightText) にする (2026/11/11) */
+textarea.cnf::selection { color: HighlightText; background: Highlight; }
 /* 入力欄の文字は真下の .cnfhl に色付きで描く (無効な行を赤にするため。2026/11/05) */
 .cnfw { position: relative; background: var(--bg); border-radius: 4px; }
 .cnfhl { position: absolute; top: 1px; left: 1px; box-sizing: border-box; padding: 2px; overflow: hidden; pointer-events: none;
