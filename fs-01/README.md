@@ -145,7 +145,7 @@ SONG(2).LEN=60             # 開始から60秒間演奏してフェードアウ�
 > MIDI.TXT 内で指定できるファイル名は 8+3 形式のみです。ロングファイルネームは指定できません。MIDI.TXT で MIDI ファイル名を指定した場合は、指定したファイルのみが演奏されて、それ以外は存在しても演奏されません。
 
 ## ■ MIDI ファイル圧縮書き込み用 Web アプリ
-<img src="images/webtool.png" alt="Webtoolスナップショット">
+<img src="images/webtool2-r.png" alt="Webtoolスナップショット">
 
 - [Web アプリを開く](https://hoshimilkali.github.io/kits/tools/ppgsynth_gzweb.html)
 ### ● 機能
