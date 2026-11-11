@@ -130,11 +130,11 @@ td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
 <main>
 
 <section>
-  <div id="drop">MIDI ファイルをここにドラッグ&ドロップ (複数可。追加した順に並び、その順に演奏します。順番は表の ▲▼ で入れ替えられます)<br>
+  <div id="drop">MIDI ファイル (このアプリで圧縮した .GZ も可) をここにドラッグ&ドロップ (複数可。追加した順に並び、その順に演奏します。順番は表の ▲▼ で入れ替えられます)<br>
     データは外部に送信されません。全てこのコンピュータ内で処理されます<br><br>
     <button id="pick">ファイルを選ぶ</button>
     <button id="sample">サンプルMIDIをロード</button>
-    <input type="file" id="file" accept=".mid,.midi,.MID" multiple hidden></div>
+    <input type="file" id="file" accept=".mid,.midi,.MID,.gz,.GZ" multiple hidden></div>
 </section>
 
 <section>
@@ -2069,15 +2069,27 @@ async function idbPut(key, val) {
 // handles: ファイルのハンドルの Promise の配列 (無ければ空)
 function addHandles(handles) {
     Promise.all(handles).then(hs => {
-        const h = hs.find(x => x && x.kind === 'file' && /\.midi?$/i.test(x.name));
+        const h = hs.find(x => x && x.kind === 'file' && SRC_EXT.test(x.name));
         if (h) st.srcHandle = h;
     }).catch(() => {});
 }
 
+// 読み込めるファイル: MIDI と、このアプリ (または ppgsynth_gz.exe) で圧縮した .GZ (2026/11/11)
+const SRC_EXT = /\.(midi?|gz)$/i;
+
+// buf が gzip (先頭が 1F 8B) なら展開した内容、そうでなければ buf をそのまま返す。
+// 展開はブラウザの DecompressionStream で行う。曲名などのテキストは変換で削ってあるので戻らない
+async function gunzipIf(buf) {
+    if (buf.length < 2 || buf[0] !== 0x1F || buf[1] !== 0x8B) return buf;
+    const ds = new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'));
+    return new Uint8Array(await new Response(ds).arrayBuffer());
+}
+
 function addFiles(files) {
-    const list = Array.from(files).filter(f => /\.midi?$/i.test(f.name));
-    if (list.length === 0) { showMsg('MIDI ファイル (.mid) がありません。', true); return; }
+    const list = Array.from(files).filter(f => SRC_EXT.test(f.name));
+    if (list.length === 0) { showMsg('MIDI ファイル (.mid) か圧縮済みのファイル (.GZ) がありません。', true); return; }
     showMsg('');
+    const bad = [];
     // 読み込みの完了順ではなく渡された順に並べるため、先に枠を作る
     const slots = list.map(f => ({ name: f.name, raw: null, res: null, err: '', out: '', lim: st.lim, start: 0, mute: new Set(), inst: new Map(), unsaved: false, cnf: '', spd: 100, speed: 0 }));
     let rest = list.length;
@@ -2085,12 +2097,12 @@ function addFiles(files) {
         if (--rest) return;
         for (const s of slots) if (s.raw) items.push(s);
         convertAll();
+        if (bad.length) showMsg(bad.join('、') + ' を展開できませんでした。', true);
     };
     list.forEach((f, i) => {
-        const rd = new FileReader();
-        rd.onload = () => { slots[i].raw = new Uint8Array(rd.result); done(); };
-        rd.onerror = done;
-        rd.readAsArrayBuffer(f);
+        f.arrayBuffer().then(b => gunzipIf(new Uint8Array(b))).then(
+            raw => { slots[i].raw = raw; done(); },
+            () => { if (/\.gz$/i.test(f.name)) bad.push(f.name); done(); });
     });
 }
 
@@ -2195,7 +2207,8 @@ async function pickFiles() {
     let hs;
     try {
         hs = await window.showOpenFilePicker({ multiple: true,
-            types: [{ description: 'MIDI', accept: { 'audio/midi': ['.mid', '.midi'] } }] });
+            types: [{ description: 'MIDI / 圧縮済み (.GZ)',
+                      accept: { 'audio/midi': ['.mid', '.midi'], 'application/gzip': ['.gz'] } }] });
     } catch (e) {
         return;     // 取り消し
     }
