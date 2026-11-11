@@ -164,7 +164,7 @@ td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
     <input type="number" id="limitNum" min="10" max="600" step="1" placeholder="なし" title="打ち切る秒数 (10〜600)。空欄は打ち切りなし">
     <span id="limitTxt"></span>
     <button id="limitAll" disabled>全曲に適用</button>
-    <span class="help" tabindex="0" role="button" aria-label="説明">?<span class="tip" role="tooltip">これから追加する曲の上限の既定値です。曲ごとの上限は表の演奏時間の欄で変えられます。曲ごとの開始の秒も同じ欄で指定できます。開始より前を切り、開始から上限より長い曲はその時刻で打ち切ってから圧縮します (上限は開始からの演奏時間)。開始と上限は元の速度 (SPEED = 100) での秒です。MIDI.TXT に追加する行で SPEED (TEMPO) を指定すると、表の演奏時間の欄と LENGTH は実際の演奏時間になります。試聴中の時刻にマウスを合わせると、元の速度での時刻も表示されます。</span></span>
+    <span class="help" tabindex="0" role="button" aria-label="説明">?<span class="tip" role="tooltip">これから追加する曲の上限の既定値です。曲ごとの上限は表の演奏時間の欄で変えられます。曲ごとの開始の秒と速度 (%) も同じ欄で指定できます。開始より前を切り、開始から上限より長い曲はその時刻で打ち切ってから圧縮します (上限は開始からの演奏時間)。開始と上限は元の速度 (SPEED = 100) での秒です。速度の欄か MIDI.TXT に追加する行で SPEED (TEMPO) を指定すると (両方あれば追加する行が優先)、表の演奏時間の欄と LENGTH は実際の演奏時間になります。試聴中の時刻にマウスを合わせると、元の速度での時刻も表示されます。</span></span>
   </div>
   <div class="row">
     <label><input type="checkbox" id="drumRemap" checked> CH10 以外のドラムパートを CH10 で鳴らす</label>
@@ -1424,6 +1424,7 @@ const $ = id => document.getElementById(id);
 // items: { name, raw, res (convertMidi の結果) | null, err, out (8.3 名 + .GZ),
 //          lim (開始からの演奏時間の上限の秒。0 = 打ち切らない), start (開始の秒。それより前を切る),
 //          unsaved (最後の保存で書き込めなかった),
+//          speed (表の速度の欄の %。0 = 指定なし), spd (入力欄の行も含めた有効な SPEED。updSpeed() で求める),
 //          cnf (MIDI.TXT に追加する行。先頭の SONG(n). を除いて書く) }
 const items = [];
 
@@ -1493,6 +1494,14 @@ function normLimit(s) {
     let v = parseInt(s, 10);
     if (isNaN(v) || v <= 0) return 0;
     return Math.min(600, Math.max(10, v));
+}
+
+// 速度の入力値を正規化する (空欄や 0 以下は指定なし = 0、SPEED_MIN〜SPEED_MAX %)
+const SPEED_MIN = 50, SPEED_MAX = 200;    // 実機の SPEED の値域
+function normSpeed(s) {
+    const v = parseInt(s, 10);
+    if (isNaN(v) || v <= 0) return 0;
+    return Math.min(SPEED_MAX, Math.max(SPEED_MIN, v));
 }
 
 function td(tr, text, cls) {
@@ -1698,6 +1707,24 @@ function render() {
         li.value = it.lim ? it.lim : '';
         li.addEventListener('change', () => setItemLimit(it, normLimit(li.value)));
         du.append(li, ' 秒');
+        // 速度 (2026/11/11): MIDI.TXT に SONG(n).SPEED を書く。表の時間と LENGTH は updSpeed() で反映する
+        du.append(document.createElement('br'), '速度 ');
+        const sp = document.createElement('input');
+        sp.type = 'number';
+        sp.className = 'lim';
+        sp.min = SPEED_MIN;
+        sp.max = SPEED_MAX;
+        sp.placeholder = '100';
+        sp.title = 'この曲の演奏速度 (' + SPEED_MIN + '〜' + SPEED_MAX + ' %)。MIDI.TXT に SPEED を書く。空欄は等倍。\n'
+                 + 'MIDI.TXT に追加する欄に SPEED (TEMPO) を書いたときは、そちらが優先される';
+        sp.value = it.speed ? it.speed : '';
+        sp.addEventListener('change', () => {
+            it.speed = normSpeed(sp.value);
+            sp.value = it.speed ? it.speed : '';
+            renderMidiTxt();
+            updSpeed(it);
+        });
+        du.append(sp, ' %');
         const cc = td(tr, '');
         it.dots = [];
         r.chans.forEach((x, i) => {
@@ -1909,7 +1936,7 @@ async function updSpeed(it) {
     } catch (e) {
         return;
     }
-    const t = cnfLines(it).filter(s => s[0] !== '#' && !/^SONG\s*\(/i.test(s)).map(s => 'SONG(0).' + s).join('\n');
+    const t = it.res ? previewTxt(it) : '';     // 表の速度の欄と入力欄の行を含む、試聴と同じ行
     const b = new TextEncoder().encode(t);
     const p = mod._malloc(b.length + 1);
     mod.HEAPU8.set(b, p);
@@ -1939,6 +1966,7 @@ function songLines(it, n, forPreview) {
     // LENGTH は SPEED を掛けない実際の秒なので、打ち切った位置までの実際の時間にする (2026/11/11)
     const len = Math.floor(realSec(it, it.res.playSec));
     if (it.res.cut && len <= LENGTH_MAX) lines.push(p + 'LENGTH     = ' + len);
+    if (it.speed) lines.push(p + 'SPEED      = ' + it.speed);     // 表の速度の欄 (入力欄の行より前に置く)
     // 選んだ音色は試聴にも渡す (自動デチューンのチャンネル選択を実機と同じにするため)。ファイルではミュート中のチャンネルは MUTE だけを書く
     for (const c of Array.from(it.inst.keys()).sort((a, b) => a - b))
         if (c !== DRUM_CH && (forPreview || !it.mute.has(c))) lines.push(p + 'CH(' + c + ').INST = ' + it.inst.get(c));
@@ -2051,7 +2079,7 @@ function addFiles(files) {
     if (list.length === 0) { showMsg('MIDI ファイル (.mid) がありません。', true); return; }
     showMsg('');
     // 読み込みの完了順ではなく渡された順に並べるため、先に枠を作る
-    const slots = list.map(f => ({ name: f.name, raw: null, res: null, err: '', out: '', lim: st.lim, start: 0, mute: new Set(), inst: new Map(), unsaved: false, cnf: '', spd: 100 }));
+    const slots = list.map(f => ({ name: f.name, raw: null, res: null, err: '', out: '', lim: st.lim, start: 0, mute: new Set(), inst: new Map(), unsaved: false, cnf: '', spd: 100, speed: 0 }));
     let rest = list.length;
     const done = () => {
         if (--rest) return;
