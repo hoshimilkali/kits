@@ -82,6 +82,10 @@ textarea.cnf::selection { color: HighlightText; background: Highlight; }
 .cnfhl .bad { color: var(--err); }
 .sample { margin: 6px 0 0; padding: 6px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px;
           font: 13px/1.5 Consolas, "BIZ UDGothic", monospace; overflow-x: auto; }
+.example { margin-top: 10px; }
+.example summary { cursor: pointer; }
+.example p { margin: 6px 0 0; }
+.example ul { margin: 4px 0 0; padding-left: 20px; }
 .ch { white-space: nowrap; }
 .chw { white-space: normal; }
 .fmt { font-size: 11px; }
@@ -164,7 +168,7 @@ td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
     <input type="number" id="limitNum" min="10" max="600" step="1" placeholder="なし" title="打ち切る秒数 (10〜600)。空欄は打ち切りなし">
     <span id="limitTxt"></span>
     <button id="limitAll" disabled>全曲に適用</button>
-    <span class="help" tabindex="0" role="button" aria-label="説明">?<span class="tip" role="tooltip">これから追加する曲の上限の既定値です。曲ごとの上限は表の演奏時間の欄で変えられます。曲ごとの開始の秒と速度 (%) も同じ欄で指定できます。開始より前を切り、開始から上限より長い曲はその時刻で打ち切ってから圧縮します (上限は開始からの演奏時間)。開始と上限は元の速度 (SPEED = 100) での秒です。速度の欄か MIDI.TXT に追加する行で SPEED (TEMPO) を指定すると (両方あれば追加する行が優先)、表の演奏時間の欄と LENGTH は実際の演奏時間になります。試聴中の時刻にマウスを合わせると、元の速度での時刻も表示されます。</span></span>
+    <span class="help" tabindex="0" role="button" aria-label="説明">?<span class="tip" role="tooltip">これから追加する曲の上限の既定値です。曲ごとの上限は表の演奏時間の欄で変えられます。曲ごとの開始の秒と速度 (%) も同じ欄で指定できます。開始より前を切り、開始から上限より長い曲はその時刻で打ち切ってから圧縮します (上限は開始からの演奏時間)。開始と上限は元の速度 (SPEED = 100) での秒です。速度の欄か「この曲の設定」欄で SPEED (TEMPO) を指定すると (両方あれば「この曲の設定」欄が優先)、表の演奏時間の欄と LENGTH は実際の演奏時間になります。試聴中の時刻にマウスを合わせると、元の速度での時刻も表示されます。</span></span>
   </div>
 </section>
 
@@ -174,11 +178,32 @@ td.ord button { padding: 0 6px; margin: 1px; font-size: 11px; }
     <span class="help" tabindex="0" role="button" aria-label="説明">?<span class="tip" role="tooltip">保存した .GZ ファイルと MIDI.TXT を同じ UDisk に置くと、SONG(1) から順に演奏します。
     試聴は VOL推奨の値で鳴らしており、MIDI.TXT の SONG(n).ALL.VOLUME はその値です。
     打ち切った曲は SONG(n).LENGTH に開始からの演奏時間を書き、終わりの 2 秒をフェードアウトします。
-    試聴の下の欄に書いた行は、先頭に SONG(n). を付けてその曲の行の後ろに追加し、試聴と WAV にも反映します
-    (例: CH(2).VOLUME = 3)。同じキーの = は欄の行が優先されます。</span></span>
+    「この曲の設定」欄に書いた行は、先頭に SONG(n). を付けてその曲の行の後ろに追加し、試聴と WAV にも反映します
+    (例: CH(2).VOLUME = 3)。同じキーの = は「この曲の設定」欄の行が優先されます。</span></span>
   </div>
 <pre class="sample" id="miditxt"></pre>
   <div class="warn" id="txtwarn"></div>
+<details class="example">
+<summary>「この曲の設定」欄の書き方 (クリックで開く)</summary>
+<p>MIDI.TXT の行の先頭の SONG(n). を省いて、1 行に 1 つずつ書きます。例えば MIDI.TXT の SONG(1).CH(1).VOL=3 は、「この曲の設定」欄には CH(1).VOL=3 と書きます。
+# から行末は注釈です。値が範囲外の行や書き方に誤りのある行は無視されます (欄では赤で示します)。</p>
+<pre class="sample">
+SPEED=120          # 演奏速度 (%)。50〜200、100 が元の速さ。TEMPO とも書ける
+CH(1).VOL=3        # CH1 の音量 (dB)。-30〜+12。+6 でほぼ 2 倍、-6 でほぼ半分。VOLUME とも書ける
+ALL.VOL=-6         # 全チャンネルの音量 (dB)。CH(n).VOL はこれに加わる
+CH(3).TRANS=-12    # CH3 の移調 (半音)。-48〜+48。-12 で 1 オクターブ下。TRANSPOSE とも書ける
+CH(2).INST=FLUTE   # CH2 の音色を固定する。INSTRUMENT とも書ける
+</pre>
+<p>INST に書ける値:</p>
+<ul>
+<li>音色名: TUNINGFORK, XYLOTONE, SAW, CLARINET, SQUARE, PIANO, VIOLIN, FLUTE, ORGAN</li>
+<li>ドラム名: BASS (バスドラム), SNARE, TOM, CLOSEDHAT, OPENHAT (CH10 以外のチャンネルでドラムを鳴らす)</li>
+<li>GM の音色番号 1〜128 (内蔵の音色に置き換える)、MUTE (鳴らさない)、OFF (固定を解除)</li>
+</ul>
+<p>CH(10) の INST は無視されます。曲の開始位置 (START) と演奏時間 (LEN) は、欄には書かずに表の演奏時間の欄で指定してください
+(開始より前を切ってから圧縮するので、欄に START を書くと、切った位置からさらに進んだところから演奏します)。
+FILE の行は自動で書くので、欄には書きません。</p>
+</details>
 </section>
 </main>
 <footer class="appft">
@@ -1721,7 +1746,7 @@ function render() {
         sp.max = SPEED_MAX;
         sp.placeholder = '100';
         sp.title = 'この曲の演奏速度 (' + SPEED_MIN + '〜' + SPEED_MAX + ' %)。MIDI.TXT に SPEED を書く。空欄は等倍。\n'
-                 + 'MIDI.TXT に追加する欄に SPEED (TEMPO) を書いたときは、そちらが優先される';
+                 + '「この曲の設定」欄に SPEED (TEMPO) を書いたときは、そちらが優先される';
         sp.value = it.speed ? it.speed : '';
         sp.addEventListener('change', () => {
             it.speed = normSpeed(sp.value);
@@ -1832,8 +1857,8 @@ function cnfArea(it) {
     ta.className = 'cnf';
     ta.rows = 5;
     ta.spellcheck = false;
-    ta.placeholder = 'MIDI.TXT に追加';
-    ta.title = 'この曲の MIDI.TXT に追加する行。先頭の SONG(n). を除いて書く (例: CH(2).VOLUME = 3)。\n'
+    ta.placeholder = 'この曲の設定';
+    ta.title = 'この曲の設定。MIDI.TXT のこの曲の行の後ろに追加する。先頭の SONG(n). を除いて書く (例: CH(2).VOLUME = 3)。\n'
              + '自動で作る行より後ろに置くので、同じキーの = はこちらが優先される。次に試聴したときから反映する。\n'
              + '実機が無視する (間違いのある) 行は赤で表示する';
     ta.value = it.cnf;
