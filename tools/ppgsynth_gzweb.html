@@ -73,6 +73,8 @@ textarea.cnf { display: block; width: 100%; min-width: 16em; font: 12px/1.4 Cons
                position: relative; padding: 2px; color: transparent; caret-color: var(--fg); background: transparent;
                border: 1px solid var(--line); border-radius: 4px; resize: vertical; }
 textarea.cnf::placeholder { color: var(--muted); }
+span.dsfx { display: inline-block; min-width: 2.5em; margin-left: 0.3em; text-align: left; }
+span.dur { display: inline-block; text-align: left; }
 /* 選んだ範囲は通常のテキストエリアと同じ色 (システムの Highlight / HighlightText) にする (2026/11/11) */
 textarea.cnf::selection { color: HighlightText; background: Highlight; }
 /* 入力欄の文字は真下の .cnfhl に色付きで描く (無効な行を赤にするため。2026/11/05) */
@@ -1705,17 +1707,21 @@ function render() {
         sz.append(fmtSize(it.raw.length), document.createElement('br'), '→ ' + fmtSize(r.gz.length),
                   document.createElement('br'), '(' + (r.gz.length * 100 / it.raw.length).toFixed(1) + ' %)');
         const du = td(tr, '', 'num');
+        // 演奏時間の 3 行と開始・上限・速度の行をひとまとめにして、行の先頭を揃える (template.html の .dur)
+        const w = document.createElement('span');
+        w.className = 'dur';
+        du.append(w);
         it.durEl = document.createElement('span');
-        du.append(it.durEl);
+        w.append(it.durEl);
         durFill(it);
         if (r.startSec >= r.durSec) {
-            du.append(document.createElement('br'));
+            w.append(document.createElement('br'));
             const s = document.createElement('span');
             s.className = 'err';
             s.textContent = '開始が曲の終わりより後です';
-            du.append(s);
+            w.append(s);
         }
-        du.append(document.createElement('br'), '開始 ');
+        w.append(document.createElement('br'), '開始 ');
         const si = document.createElement('input');
         si.type = 'number';
         si.className = 'lim';
@@ -1725,8 +1731,9 @@ function render() {
         si.title = 'この曲を演奏し始める秒数 (0〜' + START_MAX + ')。それより前を切ってから圧縮する。空欄は曲頭から';
         si.value = it.start ? it.start : '';
         si.addEventListener('change', () => setItemStart(it, normStart(si.value)));
-        du.append(si, ' 秒');
-        du.append(document.createElement('br'), '上限 ');
+        spinBase(si, () => 0);
+        w.append(si, ' 秒');
+        w.append(document.createElement('br'), '上限 ');
         const li = document.createElement('input');
         li.type = 'number';
         li.className = 'lim';
@@ -1736,9 +1743,10 @@ function render() {
         li.title = 'この曲の開始からの演奏時間の上限 (10〜600 秒、元の速度での秒)。空欄は打ち切りなし';
         li.value = it.lim ? it.lim : '';
         li.addEventListener('change', () => setItemLimit(it, normLimit(li.value)));
-        du.append(li, ' 秒');
+        spinBase(li, () => normLimit(Math.ceil(r.durSec - r.startSec)) || 10);
+        w.append(li, ' 秒');
         // 速度 (2026/11/11): MIDI.TXT に SONG(n).SPEED を書く。表の時間と LENGTH は updSpeed() で反映する
-        du.append(document.createElement('br'), '速度 ');
+        w.append(document.createElement('br'), '速度 ');
         const sp = document.createElement('input');
         sp.type = 'number';
         sp.className = 'lim';
@@ -1754,7 +1762,8 @@ function render() {
             renderMidiTxt();
             updSpeed(it);
         });
-        du.append(sp, ' %');
+        spinBase(sp, () => 100);
+        w.append(sp, ' %');
         const cc = td(tr, '');
         it.dots = [];
         r.chans.forEach((x, i) => {
@@ -1929,25 +1938,43 @@ function cnfBadLines(mod, text) {
     return bad;
 }
 
+// 空欄の数値入力で上下の矢印を押すと、ブラウザは min などから数え始めて値が飛ぶ。押す直前に
+// 空欄なら今の実際の値 (base()) を入れておき、そこから増減させる (2026/11/14)
+function spinBase(el, base) {
+    const fill = () => { if (el.value === '') el.value = base(); };
+    el.addEventListener('pointerdown', fill);
+    el.addEventListener('wheel', fill);
+    el.addEventListener('keydown', (ev) => {
+        if (ev.key === 'ArrowUp' || ev.key === 'ArrowDown') fill();
+    });
+}
+
 // SPEED を反映した実際の秒 (2026/11/11)。s: 等倍での秒。it.spd は updSpeed() で求める
 function realSec(it, s) {
     return s * 100 / (it.spd || 100);
 }
 
-// 表の演奏時間の欄の文字 (it.durEl)。SPEED が 100 でなければ速度を反映した時間を出す (2026/11/11)
+// 表の演奏時間の欄の文字 (it.durEl)。速度を反映した時間を出す (2026/11/11)
 function durFill(it) {
     const r = it.res, e = it.durEl;
     e.textContent = fmtSec(realSec(it, r.durSec));
-    if (r.cut || r.startSec > 0) {
+    // 開始・上限・速度を変えても行数が変わらず表示がずれないよう、2 行目と 3 行目は常に出す (2026/11/14)
+    {
         const s = document.createElement('span');
-        s.className = 'warn';
-        s.textContent = '→ ' + fmtSec(realSec(it, r.playSec)) + (r.cut ? ' (打ち切り)' : ' (途中から)');
+        s.className = (r.cut || r.startSec > 0) ? 'warn' : 'muted';
+        s.textContent = '→ ' + fmtSec(realSec(it, r.playSec));
+        // 「(切)」「(途)」の有無で欄の幅が変わらないよう、空でも同じ幅を取る (template.html の .dsfx)
+        const x = document.createElement('span');
+        x.className = 'dsfx';
+        x.textContent = r.cut ? '(切)' : r.startSec > 0 ? '(途)' : '';   // 打ち切り / 途中から (2026/11/14 に略字に)
+        x.title = r.cut ? '上限で打ち切り' : r.startSec > 0 ? '開始の秒から (途中から)' : '';
+        s.append(x);
         e.append(document.createElement('br'), s);
     }
-    if (it.spd !== 100) {
+    {
         const s = document.createElement('span');
         s.className = 'muted';
-        s.textContent = '(速度 ' + it.spd + ' %)';
+        s.textContent = '(速度 ' + (it.spd || 100) + ' %)';
         e.append(document.createElement('br'), s);
     }
 }
