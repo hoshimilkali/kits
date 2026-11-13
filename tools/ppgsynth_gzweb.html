@@ -1067,6 +1067,8 @@ let pv = null;                  // 再生中: { it, ac, mod, buf, next, end, tim
 // 停止ボタンで止めた曲と位置 (2026/11/05)。次にその曲の試聴ボタンを押すとここから再開する。
 // 変換し直した (it.res が変わった) ときと、間に別の曲を試聴したときは使わない: { it, res, sec }
 let pvResume = null;
+// 最後に試聴ボタンを押した曲 (2026/11/14)。スペースキーで試聴するときに使う
+let pvLastIt = null;
 
 // it が停止ボタンで止めた曲で、その位置から再開できるとき true
 function pvPaused(it) {
@@ -1255,6 +1257,7 @@ async function previewToggle(it) {
         previewStop();
         return;
     }
+    pvLastIt = it;
     const rs = (pvResume && pvResume.it === it && pvResume.res === it.res) ? pvResume.sec : 0;
     pvResume = null;
     previewStop();
@@ -1398,6 +1401,22 @@ document.addEventListener('keydown', e => {
     e.preventDefault();
     const d = e.key === 'ArrowLeft' ? -PV_KEY_STEP : PV_KEY_STEP;
     previewSeek(Math.max(0, Math.min(pv.total, previewPosSec() + d)));
+});
+
+// スペースキーで試聴ボタン / 停止ボタンを押す (2026/11/14)。試聴中ならその曲を止め、止まっているときは
+// 最後に試聴した曲 (停止した曲なら止めた位置から) を、まだ試聴していなければ表の先頭の曲を試聴する。
+// 文字の入力欄やリストボックス、ボタンにフォーカスがあるときは、その欄の操作を優先する
+document.addEventListener('keydown', e => {
+    if (e.key !== ' ' || e.repeat) return;
+    if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    const t = e.target;
+    if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(t.tagName))) return;
+    if (pv && pv.drag) return;
+    let it = pv ? pv.it : (pvResume ? pvResume.it : pvLastIt);
+    if (!it || !items.includes(it)) it = items.find(x => x.res);
+    if (!it) return;
+    e.preventDefault();
+    previewToggle(it);
 });
 
 // ui.js - 画面の処理
